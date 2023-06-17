@@ -1,0 +1,66 @@
+openapi: 3.0.3
+info:
+  title: Your Project API
+  version: 1.0.0
+  description: Your project description
+paths:
+  /api/:
+    get:
+      operationId: api_retrieve
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/predict/:
+    post:
+      operationId: api_predict_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelPrediction'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelPrediction'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelPrediction'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelPrediction'
+          description: ''
+components:
+  schemas:
+    ModelPrediction:
+      type: object
+      properties:
+        model_name:
+          type: string
+        text:
+          type: string
+      required:
+      - model_name
+      - text
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

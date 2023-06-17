@@ -1,0 +1,1 @@
+web: python core/manage.py initdb && gunicorn core.wsgi:application --chdir core/
