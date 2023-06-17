@@ -33,8 +33,8 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-!^-1np4s)nm1ah)om$0#0
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-# ALLOWED_HOSTS = ["*"]
-# CORS_ORIGIN_ALLOW_ALL = True
+ALLOWED_HOSTS = ["*"]
+CORS_ORIGIN_ALLOW_ALL = True
 
 # ALLOWED_HOSTS = ['.onrender.com', '.vercel.app']
 
@@ -42,8 +42,8 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 #     'https://frontend-banking-questions-deployment.vercel.app',
 # ]
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [host.strip() for host in v.split(',')])
-CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=lambda v: [origin.strip() for origin in v.split(',')])
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [host.strip() for host in v.split(',')])
+# CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=lambda v: [origin.strip() for origin in v.split(',')])
 
 # Application definition
 
